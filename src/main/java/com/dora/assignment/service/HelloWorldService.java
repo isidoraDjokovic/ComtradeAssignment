@@ -1,6 +1,7 @@
 package com.dora.assignment.service;
 
 import com.dora.assignment.entity.HelloWorld;
+import com.dora.assignment.exception.NotFoundException;
 import com.dora.assignment.repository.SpringDataHelloWorldRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class HelloWorldService {
 
     public HelloWorld findByLanguageCode(String languageCode)
     {
-        return repository.findByLanguageCode(languageCode).orElseThrow(RuntimeException::new);
+        return repository.findByLanguageCode(languageCode).orElseThrow(() -> new NotFoundException("No translation found"));
     }
 
 
