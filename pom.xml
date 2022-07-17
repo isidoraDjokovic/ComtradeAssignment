@@ -15,6 +15,8 @@
 	<description>Simple Java WEB-based application that provides the various translations of ‘Hello World’ string</description>
 	<properties>
 		<java.version>17</java.version>
+
+		<apache.maven.plugins.version>3.10.1</apache.maven.plugins.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -40,11 +42,6 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
@@ -54,6 +51,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>4.11.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -61,7 +64,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.10.1</version>
+				<version>${apache.maven.plugins.version}</version>
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
