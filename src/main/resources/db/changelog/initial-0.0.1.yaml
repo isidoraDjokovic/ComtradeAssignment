@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0.0.1
+      author: Isidora Djokovic
+      changes:
+        - createTable:
+            tableName: helloworld
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  incrementBy: 1
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: language_code
+                  type: varchar(2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: text
+                  type: varchar(45)
+                  constraints:
+                    nullable: false
