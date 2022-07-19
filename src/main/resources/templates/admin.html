@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="LogOut"/>
+</form>
+<div th:switch="${translations}">
+    <h2 th:case="null">No Language-Message pairs added yet!</h2>
+    <div th:case="*">
+        <h2>Language-Message pairs</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Language Code</th>
+                <th>Translation</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="translation : ${translations}">
+                <td th:text="${translation.languageCode}"></td>
+                <td th:text="${translation.text}"></td>
+                <td><form th:action="@{/admin/{languageCode}(languageCode=${translation.languageCode})}" method="delete"><input type="submit" value="Delete"/></form></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h2>Add Language-Message pairs</h2>
+        <form action="#" th:action="@{/admin}" th:object="${helloWorld}" method="post">
+            <label for="languageCode">Language Code</label>
+            <input type="text" th:field="*{languageCode}" id="languageCode" placeholder="LanguageCode" required>
+            <span th:if="${#fields.hasErrors('languageCode')}" th:errors="*{languageCode}"></span>
+            <br>
+            <label for="text">Translation</label>
+            <input type="text" th:field="*{text}" id="text" placeholder="Hello World Translation" required>
+            <span th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></span>
+            <br>
+            <input type="submit" value="Add">
+        </form>
+    </div>
+
+</div>
+</body>
+</html>
