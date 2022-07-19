@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
       file: /db/changelog/initial-0.0.1.yaml
+  - include:
+      file: /db/changelog/language_code_unique_constraint-0.0.2.yaml

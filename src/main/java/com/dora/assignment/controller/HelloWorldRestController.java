@@ -1,20 +1,21 @@
 package com.dora.assignment.controller;
 
+import com.dora.assignment.service.HelloWorldService;
+import com.dora.assignment.validator.LanguageCode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping()
+@RequestMapping
 @RequiredArgsConstructor
 public class HelloWorldRestController {
 
-    @GetMapping("hello-rest")
-    @ResponseStatus(HttpStatus.OK)
-    public String helloRest(){
-        return "Hello World";
-    }
+  private final HelloWorldService service;
+
+  @GetMapping("hello-rest")
+  @ResponseStatus(HttpStatus.OK)
+  public String helloRest(@RequestParam("language_code") @LanguageCode String languageCode) {
+    return service.findByLanguageCode(languageCode).getText();
+  }
 }
