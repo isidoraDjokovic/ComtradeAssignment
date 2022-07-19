@@ -5,6 +5,5 @@ import lombok.Data;
 @Data
 public class NotFoundException extends RuntimeException {
 
-    private final String message;
-
+  private final String message;
 }

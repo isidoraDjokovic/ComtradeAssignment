@@ -6,8 +6,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import java.util.Optional;
 
-public interface  SpringDataHelloWorldRepository extends CrudRepository<HelloWorld,Long> {
+public interface SpringDataHelloWorldRepository extends CrudRepository<HelloWorld, Long> {
 
-    @Query("SELECT * FROM helloworld WHERE language_code = :languageCode")
-    Optional<HelloWorld> findByLanguageCode(@Param("languageCode") String languageCode);
+  @Query("SELECT * FROM helloworld WHERE language_code = :languageCode")
+  Optional<HelloWorld> findByLanguageCode(@Param("languageCode") String languageCode);
 }
