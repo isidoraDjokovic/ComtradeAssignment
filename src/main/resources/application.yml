@@ -1,13 +1,8 @@
 spring:
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-      settings:
-        trace: false
-        web-allow-others: false
   datasource:
-    url: jdbc:h2:mem:hellodb;DATABASE_TO_UPPER=false;DATABASE_TO_LOWER=true;
+    url: jdbc:postgresql://localhost:5432/hellodb
+    username: user
+    password: password
   liquibase:
     enabled: true
   sql:
@@ -17,3 +12,6 @@ server:
   error:
     whitelabel:
       enabled: false
+logging:
+  level:
+    com.dora.assignment.repository: debug

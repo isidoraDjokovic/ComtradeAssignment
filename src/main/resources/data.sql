@@ -4,8 +4,9 @@ VALUES ('en', 'Hello World'),
        ('zh', '你好世界'),
        ('sl', 'Pozdravljen svet'),
        ('it', 'Ciao mondo'),
-       ('es', '	¡Hola Mundo'),
-       ('cs', '	Ahoj světe'),
+       ('es', '¡Hola Mundo'),
+       ('cs', 'Ahoj světe'),
        ('de', 'Hallo Welt'),
        ('ja', 'こんにちは世界'),
-       ('ar', 'مرحبا بالعالم');
+       ('ar', 'مرحبا بالعالم')
+ON CONFLICT DO NOTHING;
