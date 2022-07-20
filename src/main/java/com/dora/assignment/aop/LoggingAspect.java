@@ -27,7 +27,7 @@ public class LoggingAspect {
 
       if (arg instanceof HelloWorld) {
         arguments = new StringBuilder(arg.toString());
-      } else arguments.append(" Type: ").append(arg.getClass()).append(" Value: ").append(arg);
+      } else arguments.append(" Type: ").append(arg.getClass().getSimpleName()).append(" Value: ").append(arg);
     }
     logger.info("Executing service: " + methodName + " with arguments: " + arguments);
   }

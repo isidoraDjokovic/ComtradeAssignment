@@ -3,6 +3,7 @@ package com.dora.assignment.controller;
 import com.dora.assignment.dto.HelloWorldDTO;
 import com.dora.assignment.entity.HelloWorld;
 import com.dora.assignment.service.HelloWorldService;
+import com.dora.assignment.service.ITranslationService;
 import com.dora.assignment.validator.LanguageCode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -18,13 +19,15 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class HelloWorldController {
 
-  private final HelloWorldService service;
+  private final ITranslationService service;
+  private final HelloWorldService internalService;
+
 
   @GetMapping("hello")
   public String hello(
       @RequestParam("language_code") @LanguageCode String languageCode, Model model) {
-    model.addAttribute("message", service.findByLanguageCode(languageCode).getText());
-    model.addAttribute("language", service.findByLanguageCode(languageCode).getLanguageCode());
+    model.addAttribute("message", service.translate(languageCode));
+    model.addAttribute("language", languageCode);
     return "index";
   }
 
@@ -40,23 +43,25 @@ public class HelloWorldController {
 
   @GetMapping("admin")
   public String admin(Model model) {
-    model.addAttribute("translations", service.findAll());
+    model.addAttribute("translations", internalService.findAll());
     model.addAttribute("helloWorld", new HelloWorld());
     return "admin";
   }
 
+
   @PostMapping("admin")
   public String addPair(@ModelAttribute("helloWorld") @Valid HelloWorldDTO helloWorld) {
-    service.save(
+    internalService.save(
         new HelloWorld()
             .setText(helloWorld.getText())
             .setLanguageCode(helloWorld.getLanguageCode()));
     return "redirect:/admin";
   }
 
+
   @GetMapping("admin/{languageCode}")
   public String delete(@PathVariable("languageCode") String languageCode) {
-    service.delete(languageCode);
+    internalService.delete(languageCode);
     return "redirect:/admin";
   }
 }
