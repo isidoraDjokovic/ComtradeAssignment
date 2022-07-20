@@ -8,6 +8,8 @@ spring:
   sql:
     init:
       mode: always
+  profiles:
+    active: external
 server:
   error:
     whitelabel:
@@ -15,3 +17,22 @@ server:
 logging:
   level:
     com.dora.assignment.repository: debug
+
+
+dora:
+  assignment:
+    web-client:
+      url: https://google-translate1.p.rapidapi.com/language/translate/v2
+      headers:
+        -
+          name: Content-Type
+          value: application/x-www-form-urlencoded
+        -
+          name: Accept-Encoding
+          value: application/gzip
+        -
+          name: X-RapidAPI-Key
+          value: 740877a791mshdf9915b79b8b2d8p198983jsn0bb4e4518328
+        -
+          name: X-RapidAPI-Host
+          value: google-translate1.p.rapidapi.com

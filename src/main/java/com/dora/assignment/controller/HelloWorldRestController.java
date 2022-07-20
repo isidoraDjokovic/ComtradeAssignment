@@ -16,7 +16,6 @@ public class HelloWorldRestController {
 
   private final HelloWorldService service;
 
-  @Log
   @GetMapping("hello-rest")
   @ResponseStatus(HttpStatus.OK)
   public String helloRest(@RequestParam("language_code") @LanguageCode String languageCode) {
