@@ -1,5 +1,6 @@
 package com.dora.assignment.controller;
 
+import com.dora.assignment.aop.Log;
 import com.dora.assignment.dto.HelloWorldDTO;
 import com.dora.assignment.entity.HelloWorld;
 import com.dora.assignment.service.HelloWorldService;
@@ -20,6 +21,7 @@ public class HelloWorldController {
 
   private final HelloWorldService service;
 
+  @Log
   @GetMapping("hello")
   public String hello(
       @RequestParam("language_code") @LanguageCode String languageCode, Model model) {
@@ -45,6 +47,7 @@ public class HelloWorldController {
     return "admin";
   }
 
+  @Log
   @PostMapping("admin")
   public String addPair(@ModelAttribute("helloWorld") @Valid HelloWorldDTO helloWorld) {
     service.save(
@@ -54,6 +57,7 @@ public class HelloWorldController {
     return "redirect:/admin";
   }
 
+  @Log
   @GetMapping("admin/{languageCode}")
   public String delete(@PathVariable("languageCode") String languageCode) {
     service.delete(languageCode);
