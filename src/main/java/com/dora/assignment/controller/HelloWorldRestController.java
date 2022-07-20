@@ -1,5 +1,6 @@
 package com.dora.assignment.controller;
 
+import com.dora.assignment.aop.Log;
 import com.dora.assignment.service.HelloWorldService;
 import com.dora.assignment.validator.LanguageCode;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ public class HelloWorldRestController {
 
   private final HelloWorldService service;
 
+  @Log
   @GetMapping("hello-rest")
   @ResponseStatus(HttpStatus.OK)
   public String helloRest(@RequestParam("language_code") @LanguageCode String languageCode) {
