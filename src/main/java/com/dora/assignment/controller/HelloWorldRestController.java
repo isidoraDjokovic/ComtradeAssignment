@@ -1,6 +1,5 @@
 package com.dora.assignment.controller;
 
-import com.dora.assignment.aop.Log;
 import com.dora.assignment.service.HelloWorldService;
 import com.dora.assignment.validator.LanguageCode;
 import lombok.RequiredArgsConstructor;

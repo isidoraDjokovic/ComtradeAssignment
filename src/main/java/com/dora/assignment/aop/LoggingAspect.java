@@ -21,7 +21,11 @@ public class LoggingAspect {
     Object[] args = joinPoint.getArgs();
     StringBuilder arguments = new StringBuilder();
     for (Object arg : args) {
-      arguments.append(" Type: ").append(arg.getClass().getSimpleName()).append(" Value: ").append(arg);
+      arguments
+          .append(" Type: ")
+          .append(arg.getClass().getSimpleName())
+          .append(" Value: ")
+          .append(arg);
     }
     log.info("Executing service: {} with arguments: {}", methodName, arguments);
   }

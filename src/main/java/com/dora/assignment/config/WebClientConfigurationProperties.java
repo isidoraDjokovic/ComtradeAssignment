@@ -11,13 +11,12 @@ import java.util.List;
 @ConfigurationProperties(prefix = "dora.assignment.web-client")
 public class WebClientConfigurationProperties {
 
-    private String url;
-    private List<Header> headers;
+  private String url;
+  private List<Header> headers;
 
-
-    @Data
-    public static class Header {
-        private String name;
-        private String value;
-    }
+  @Data
+  public static class Header {
+    private String name;
+    private String value;
+  }
 }

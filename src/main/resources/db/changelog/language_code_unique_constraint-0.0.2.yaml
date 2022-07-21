@@ -3,9 +3,9 @@ databaseChangeLog:
       id: 0.0.2
       author: Isidora Djokovic
       changes:
-      - addUniqueConstraint:
-          tableName: helloworld
-          columnNames: language_code
-          constraintName: uq_helloworld_language_code
-          forIndexCatalogName: idx_helloworld_language_code
-          validate: true
+        - addUniqueConstraint:
+            tableName: helloworld
+            columnNames: language_code
+            constraintName: uq_helloworld_language_code
+            forIndexCatalogName: idx_helloworld_language_code
+            validate: true

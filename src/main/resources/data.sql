@@ -8,5 +8,4 @@ VALUES ('en', 'Hello World'),
        ('cs', 'Ahoj světe'),
        ('de', 'Hallo Welt'),
        ('ja', 'こんにちは世界'),
-       ('ar', 'مرحبا بالعالم')
-ON CONFLICT DO NOTHING;
+       ('ar', 'مرحبا بالعالم') ON CONFLICT DO NOTHING;

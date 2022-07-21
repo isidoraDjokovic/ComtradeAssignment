@@ -4,11 +4,51 @@ volumes:
   postgres_data:
     driver: local
 
+networks:
+  comtrade-net:
+    driver: bridge
+
 services:
+
+  internal:
+    build:
+      dockerfile: Dockerfile
+    container_name: comtrade-assignment-db-app
+    image: dora/comtrade-assignment:latest
+    networks:
+      - comtrade-net
+    ports:
+      - "8989:8989"
+    environment:
+      DB_HOST: postgres
+      APP_PROFILE: internal
+      SERVER_PORT: 8989
+    depends_on:
+      - postgres
+
+  external:
+    build:
+      dockerfile: Dockerfile
+    container_name: comtrade-assignment-external-app
+    image: dora/comtrade-assignment:latest
+    networks:
+      - comtrade-net
+    ports:
+      - "8888:8888"
+    environment:
+      DB_HOST: postgres
+      APP_PROFILE: external
+      SERVER_PORT: 8888
+    depends_on:
+      - postgres
+      - internal
+
   postgres:
     container_name: postgres
     image: postgres:12.4-alpine
     restart: unless-stopped
+    networks:
+      - comtrade-net
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:

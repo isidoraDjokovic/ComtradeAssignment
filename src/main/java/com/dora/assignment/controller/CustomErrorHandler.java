@@ -1,9 +1,10 @@
 package com.dora.assignment.controller;
 
 import com.dora.assignment.exception.NotFoundException;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.ui.Model;
+
 import javax.validation.ConstraintViolationException;
 
 @ControllerAdvice
