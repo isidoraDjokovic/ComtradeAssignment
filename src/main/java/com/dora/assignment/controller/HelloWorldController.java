@@ -1,6 +1,5 @@
 package com.dora.assignment.controller;
 
-import com.dora.assignment.aop.Log;
 import com.dora.assignment.dto.HelloWorldDTO;
 import com.dora.assignment.entity.HelloWorld;
 import com.dora.assignment.service.HelloWorldService;
@@ -23,8 +22,6 @@ public class HelloWorldController {
   private final ITranslationService service;
   private final HelloWorldService internalService;
 
-
-  @Log
   @GetMapping("hello")
   public String hello(
       @RequestParam("language_code") @LanguageCode String languageCode, Model model) {
@@ -38,7 +35,7 @@ public class HelloWorldController {
     return "login";
   }
 
-  @GetMapping("user")
+  @GetMapping("/user")
   public String user() {
     return "user";
   }

@@ -25,28 +25,26 @@ public class TranslationServiceExternal implements ITranslationService {
   public String translate(String languageCode) {
     String word = "Hello World";
     String defaultLanguageCode = "en";
-    if(languageCode.equals(defaultLanguageCode))
-      return word;
+    if (languageCode.equals(defaultLanguageCode)) return word;
     OkHttpClient client = new OkHttpClient();
-    String response;
     FormBody body =
         new FormBody.Builder()
             .add("q", word)
             .add("target", languageCode)
             .add("source", defaultLanguageCode)
             .build();
-    var request =
-        new Request.Builder()
-            .url(webClientConfigurationProperties.getUrl())
-            .post(body);
-    webClientConfigurationProperties.getHeaders()
+    var request = new Request.Builder().url(webClientConfigurationProperties.getUrl()).post(body);
+    webClientConfigurationProperties
+        .getHeaders()
         .forEach(header -> request.addHeader(header.getName(), header.getValue()));
-    response = Objects.requireNonNull(client.newCall(request.build()).execute().body()).string();
-    return translation(response);
-
+    var response = client.newCall(request.build()).execute();
+    if (!response.isSuccessful()) {
+      throw new RuntimeException("External API failed to translate");
+    }
+    return translation(Objects.requireNonNull(response.body()).string());
   }
 
-  public String translation(String result){
-    return StringUtils.substringBetween(result, "\"translatedText\":", "}").replace("\"","");
+  public String translation(String result) {
+    return StringUtils.substringBetween(result, "\"translatedText\":", "}").replace("\"", "");
   }
 }

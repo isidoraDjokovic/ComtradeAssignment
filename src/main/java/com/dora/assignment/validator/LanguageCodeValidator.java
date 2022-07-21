@@ -7,8 +7,8 @@ import java.util.Set;
 
 public class LanguageCodeValidator implements ConstraintValidator<LanguageCode, String> {
 
-  private int size;
   private static final Set<String> ISO_LANGUAGES = Set.of(Locale.getISOLanguages());
+  private int size;
 
   @Override
   public void initialize(LanguageCode languageCode) {

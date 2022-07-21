@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-<form th:action="@{/logout}" method="post">
+<form method="post" th:action="@{/logout}">
     <input type="submit" value="LogOut"/>
 </form>
 <div th:switch="${translations}">
@@ -25,21 +25,25 @@
             <tr th:each="translation : ${translations}">
                 <td th:text="${translation.languageCode}"></td>
                 <td th:text="${translation.text}"></td>
-                <td><form th:action="@{/admin/{languageCode}(languageCode=${translation.languageCode})}" method="delete"><input type="submit" value="Delete"/></form></td>
+                <td>
+                    <form method="get"
+                          th:action="@{/admin/{languageCode}(languageCode=${translation.languageCode})}"><input
+                            type="submit" value="Delete"/></form>
+                </td>
             </tr>
             </tbody>
         </table>
     </div>
     <div>
         <h2>Add Language-Message pairs</h2>
-        <form action="#" th:action="@{/admin}" th:object="${helloWorld}" method="post">
+        <form action="#" method="post" th:action="@{/admin}" th:object="${helloWorld}">
             <label for="languageCode">Language Code</label>
-            <input type="text" th:field="*{languageCode}" id="languageCode" placeholder="LanguageCode" required>
-            <span th:if="${#fields.hasErrors('languageCode')}" th:errors="*{languageCode}"></span>
+            <input id="languageCode" placeholder="LanguageCode" required th:field="*{languageCode}" type="text">
+            <span th:errors="*{languageCode}" th:if="${#fields.hasErrors('languageCode')}"></span>
             <br>
             <label for="text">Translation</label>
-            <input type="text" th:field="*{text}" id="text" placeholder="Hello World Translation" required>
-            <span th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></span>
+            <input id="text" placeholder="Hello World Translation" required th:field="*{text}" type="text">
+            <span th:errors="*{text}" th:if="${#fields.hasErrors('text')}"></span>
             <br>
             <input type="submit" value="Add">
         </form>

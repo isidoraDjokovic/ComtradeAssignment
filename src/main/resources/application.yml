@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/hellodb
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/hellodb
     username: user
     password: password
   liquibase:
@@ -9,14 +9,16 @@ spring:
     init:
       mode: always
   profiles:
-    active: external
+    active: ${APP_PROFILE:internal}
 server:
   error:
     whitelabel:
       enabled: false
+  port: ${SERVER_PORT:8080}
 logging:
   level:
     com.dora.assignment.repository: debug
+    com.dora.assignment.service: debug
 
 
 dora:
@@ -24,15 +26,11 @@ dora:
     web-client:
       url: https://google-translate1.p.rapidapi.com/language/translate/v2
       headers:
-        -
-          name: Content-Type
+        - name: Content-Type
           value: application/x-www-form-urlencoded
-        -
-          name: Accept-Encoding
+        - name: Accept-Encoding
           value: application/gzip
-        -
-          name: X-RapidAPI-Key
-          value: 740877a791mshdf9915b79b8b2d8p198983jsn0bb4e4518328
-        -
-          name: X-RapidAPI-Host
+        - name: X-RapidAPI-Key
+          value: ebf8eecadbmsh4e7b2cd6aab9cb3p19c03ajsnf4ab1650874e
+        - name: X-RapidAPI-Host
           value: google-translate1.p.rapidapi.com

@@ -21,7 +21,6 @@ public class HelloWorldService {
     repository.save(helloWorld);
   }
 
-
   @Log
   public void delete(String languageCode) {
     HelloWorld saved = findByLanguageCode(languageCode);
