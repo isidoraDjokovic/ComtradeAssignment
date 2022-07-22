@@ -171,4 +171,4 @@ Now when calling an endpoint listed below we will be routed to the appropriate i
 ```
 ##### ISSUE
 
-When enabling the reverse proxy, after submitting the login form we are redirected to the wrong route. [Link]("https://github.com/isidoraDjokovic/ComtradeAssignment/issues/16#issue-1314778176")
+When enabling the reverse proxy, after submitting the login form we are redirected to the wrong route.
