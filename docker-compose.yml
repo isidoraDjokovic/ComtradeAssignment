@@ -10,18 +10,18 @@ networks:
 
 services:
 
-  nginx:
-    image: nginx:latest
-    container_name: comtrade-assignment-nginx
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
-    ports:
-      - "7070:7070"
-    networks:
-      - comtrade-net
-    depends_on:
-      - internal
-      - external
+#  nginx:
+#    image: nginx:latest
+#    container_name: comtrade-assignment-nginx
+#    volumes:
+#      - ./nginx.conf:/etc/nginx/nginx.conf
+#    ports:
+#      - "7070:7070"
+#    networks:
+#      - comtrade-net
+#    depends_on:
+#      - internal
+#      - external
 
   internal:
     build:
