@@ -36,6 +36,7 @@ various translations of ‘Hello World’ string.
 - [X] Run 2 instances of application (one that uses DB and another that uses external API) and put an
     reverse proxy in front of them, so when user access /api/db/hello or /api/external/hello it get
     routed to proper instance of the application. [Issue](#issue)
+ ---
 All the tasks were issued and organized with JIRA 
     
 ## Introduction
@@ -60,8 +61,8 @@ Initial data:
 
 ## Releases
 
-- v1.0:Tasks 1-7
-- v2.0:Tasks 1-13
+- v1.0: Tasks 1-7
+- v2.0: Tasks 1-13
 
 ## Building the project
 To run build this project you will need:
@@ -72,7 +73,7 @@ To run build this project you will need:
 .\mvnw clean install
 ````
 ## Running the Application on Docker
-First create the executable .jar file using Maven:
+First package the project into a .jar file using Maven:
 ````shell
 .\mvnw clean package
 ````
