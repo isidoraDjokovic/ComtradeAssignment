@@ -36,8 +36,8 @@ various translations of ‘Hello World’ string.
 - [X] Run 2 instances of application (one that uses DB and another that uses external API) and put an
     reverse proxy in front of them, so when user access /api/db/hello or /api/external/hello it get
     routed to proper instance of the application. [Issue](#issue)
- ---
-All the tasks were issued and organized with JIRA 
+
+*All the tasks were issued and organized with JIRA*
     
 ## Introduction
 
