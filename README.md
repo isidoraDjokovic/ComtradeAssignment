@@ -29,13 +29,13 @@ various translations of ‘Hello World’ string.
 - [X] Has an aspect (AOP) that performs logging for different endpoints with useful information
    included into logs
 - [X] Uses a standalone DB instead of in-memory H2 DB
-- [X Has ability to retrieve ‘Hello World’ translations from an external API (eg. Systran Translation API)
+- [X] Has ability to retrieve ‘Hello World’ translations from an external API (eg. Systran Translation API)
 - [X] Has ability to switch between DB and external API retrieval by using spring profiles
 - [X] Use standalone DB instead of in-memory H2
 - [X] Dockerize the application
 - [X] Run 2 instances of application (one that uses DB and another that uses external API) and put an
     reverse proxy in front of them, so when user access /api/db/hello or /api/external/hello it get
-    routed to proper instance of the application.[Issue]("https://github.com/isidoraDjokovic/ComtradeAssignment/issues/16")]
+    routed to proper instance of the application. [Issue]("https://github.com/isidoraDjokovic/ComtradeAssignment/issues/16")
 
 ## Introduction
 
@@ -59,8 +59,8 @@ Initial data:
 
 ## Releases
 
-- [v1.0: Tasks 1-7]("https://github.com/isidoraDjokovic/ComtradeAssignment/releases/tag/v1.0")
-- [v2.0: Tasks 1-13]("https://github.com/isidoraDjokovic/ComtradeAssignment/releases/tag/v2.0")
+- v1.0:Tasks 1-7
+- v2.0:Tasks 1-13
 
 ## Building the project
 To run build this project you will need:
