@@ -36,8 +36,7 @@ various translations of ‘Hello World’ string.
 - [X] Run 2 instances of application (one that uses DB and another that uses external API) and put an
     reverse proxy in front of them, so when user access /api/db/hello or /api/external/hello it get
     routed to proper instance of the application. [Issue](#issue)
-
-All the tasks were issued and organized using JIRA dashboard.
+All the tasks were issued and organized with JIRA 
     
 ## Introduction
 
@@ -61,8 +60,8 @@ Initial data:
 
 ## Releases
 
-- v1.0: Tasks 1-7
-- v2.0: Tasks 1-13
+- v1.0:Tasks 1-7
+- v2.0:Tasks 1-13
 
 ## Building the project
 To run build this project you will need:
@@ -129,7 +128,7 @@ Users are defined in the [WebSecurityConfig](https://github.com/isidoraDjokovic/
 | user        | password | USER  |
 | admin       | admin    | ADMIN |
 
-If you try to access the ````/admin ```` endpoint you will get rerouted to ````/secure/hello ```` that requires users to enter their credentials and based on them, you will get rerouted to the appropriate page. 
+If you try to access the ````/admin ```` endpoint you will get redirected to the  ````/secure/hello ```` that requires users to enter their credentials and based on them redirect them to the appropriate page.
 ## Reverse Proxy
 In order to enable reverse proxy with nginx uncomment the following lines of code from the [docker-compose.yml]("https://github.com/isidoraDjokovic/ComtradeAssignment/blob/main/docker-compose.yml").
 ````yml
