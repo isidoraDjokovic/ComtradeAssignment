@@ -1,5 +1,4 @@
 # ComtradeAssignment
-
 ---
 A simple Java WEB-based application that provides the
 various translations of ‘Hello World’ string.
@@ -28,7 +27,7 @@ various translations of ‘Hello World’ string.
 - [X] Has an aspect (AOP) that performs logging for different endpoints with useful information
    included into logs
 - [X] Uses a standalone DB instead of in-memory H2 DB
-- [X Has ability to retrieve ‘Hello World’ translations from an external API (eg. Systran Translation API)
+- [X] Has ability to retrieve ‘Hello World’ translations from an external API (eg. Systran Translation API)
 - [X] Has ability to switch between DB and external API retrieval by using spring profiles
 - [X] Use standalone DB instead of in-memory H2
 - [X] Dockerize the application
