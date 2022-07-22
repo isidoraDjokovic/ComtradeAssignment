@@ -61,8 +61,8 @@ Initial data:
 
 ## Releases
 
-- v1.0: Tasks 1-7
-- v2.0: Tasks 1-13
+- [v1.0: Tasks 1-7](https://github.com/isidoraDjokovic/ComtradeAssignment/releases/tag/v1.0)
+- [v2.0: Tasks 1-13](https://github.com/isidoraDjokovic/ComtradeAssignment/releases/tag/v2.0)
 
 ## Building the project
 To run build this project you will need:
