@@ -35,10 +35,9 @@ various translations of ‘Hello World’ string.
 - [X] Dockerize the application
 - [X] Run 2 instances of application (one that uses DB and another that uses external API) and put an
     reverse proxy in front of them, so when user access /api/db/hello or /api/external/hello it get
-    routed to proper instance of the application. 
+    routed to proper instance of the application. [Issue](#issue)
     
-    [Issue]("https://github.com/isidoraDjokovic/ComtradeAssignment/issues/16")
-
+    
 ## Introduction
 
 The application is implemented in Spring, and it uses:
