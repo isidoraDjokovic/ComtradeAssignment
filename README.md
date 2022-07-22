@@ -1,11 +1,13 @@
 # ComtradeAssignment
+
 ---
 A simple Java WEB-based application that provides the
 various translations of ‘Hello World’ string.
 
 ## Table of contents
 * [Tasks](#tasks)
-* [About](#about)
+* [Introduction](#introduction)
+* [Releases](#releases)
 * [Building the project](#building-the-project)
 * [Running the Application on Docker](#running-the-application-on-docker)
 * [Environmental variables](#environmental-variables)
@@ -27,16 +29,15 @@ various translations of ‘Hello World’ string.
 - [X] Has an aspect (AOP) that performs logging for different endpoints with useful information
    included into logs
 - [X] Uses a standalone DB instead of in-memory H2 DB
-- [X] Has ability to retrieve ‘Hello World’ translations from an external API (eg. Systran Translation API)
+- [X Has ability to retrieve ‘Hello World’ translations from an external API (eg. Systran Translation API)
 - [X] Has ability to switch between DB and external API retrieval by using spring profiles
 - [X] Use standalone DB instead of in-memory H2
 - [X] Dockerize the application
 - [X] Run 2 instances of application (one that uses DB and another that uses external API) and put an
     reverse proxy in front of them, so when user access /api/db/hello or /api/external/hello it get
-    routed to proper instance of the application.
-    ###### [Issue](#reverse-proxy)
+    routed to proper instance of the application.[Issue]("https://github.com/isidoraDjokovic/ComtradeAssignment/issues/16")]
 
-## About
+## Introduction
 
 The application is implemented in Spring, and it uses:
 - PostgreSQL Alpine 12.4 Database
@@ -56,6 +57,10 @@ Initial data:
 |  ja  |     こんにちは世界      |
 |  ar  |  مرحبا بالعالم   |
 
+## Releases
+
+- [v1.0: Tasks 1-7]("https://github.com/isidoraDjokovic/ComtradeAssignment/releases/tag/v1.0")
+- [v2.0: Tasks 1-13]("https://github.com/isidoraDjokovic/ComtradeAssignment/releases/tag/v2.0")
 
 ## Building the project
 To run build this project you will need:
@@ -164,4 +169,4 @@ Now when calling an endpoint listed below we will be routed to the appropriate i
 /api/db/hello?language_code=[languageCode]
 ```
 ##### ISSUE
-After enabling reverse proxy Login redirects you to the wrong route.
+After enabling reverse proxy Login doesn't work because It redirects you to wrong the route.
