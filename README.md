@@ -170,4 +170,5 @@ Now when calling an endpoint listed below we will be routed to the appropriate i
 /api/db/hello?language_code=[languageCode]
 ```
 ##### ISSUE
-After enabling reverse proxy Login doesn't work because It redirects you to wrong the route.
+
+When enabling the reverse proxy, after submitting the login form we are redirected to the wrong route.
