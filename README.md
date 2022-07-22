@@ -37,7 +37,7 @@ various translations of ‘Hello World’ string.
     reverse proxy in front of them, so when user access /api/db/hello or /api/external/hello it get
     routed to proper instance of the application. [Issue](#issue)
 
-*All the tasks were issued and organized with JIRA*
+*All the tasks were issued and organized using a JIRA dashboard*
     
 ## Introduction
 
